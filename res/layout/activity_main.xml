@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  	android:orientation="vertical"
+    tools:context="com.lijun.note.MainActivity" >
+	<LinearLayout
+	    android:layout_width="fill_parent" 
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal">
+	    <Button 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:id="@+id/butt1"
+	        android:text="@string/text1"
+	        style="?android:attr/borderlessButtonStyle"/>
+	        
+	        <Button 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:id="@+id/butt2"
+	        android:text="@string/text2"
+	        style="?android:attr/borderlessButtonStyle"/>
+	        
+	         <Button 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:id="@+id/butt3"
+	        android:text="@string/text3"
+	        style="?android:attr/borderlessButtonStyle"/>
+	</LinearLayout>
+	<ListView
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:id="@+id/list1"
+	    
+	    ></ListView>
+
+</LinearLayout>
