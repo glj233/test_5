@@ -9,7 +9,7 @@ public class NoteDB extends SQLiteOpenHelper {
 	public static  final String TABLE_NAME = "notes";
 	public static  final String CONTENT = "content";
 	public static  final String PATH = "path";
-				
+	public static  final String  VEDIO ="vedio";			
 	public static  final String ID = "_id";
 	public static  final String TIME = "time";
 	public NoteDB(Context context) {
@@ -23,6 +23,7 @@ public class NoteDB extends SQLiteOpenHelper {
 					+" INTEGER PRIMARY KEY AUTOINCREMENT,"
 					+ CONTENT+ "  ," 
 					+ PATH + "  ,"
+					+VEDIO +"  ,"
 					+ TIME + " TEXT NOT NULL)");
   	}
   @Override

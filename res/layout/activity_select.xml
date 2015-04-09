@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:orientation = "vertical"
+    tools:context="com.lijun.note.SelectAct" >
+
+ 	<ImageView
+ 	    android:id="@+id/s_img"
+ 	    android:layout_width = "fill_parent"
+ 	    android:layout_height = "500dp"
+ 	    android:visibility="gone"
+ 	    />
+ 	<VideoView
+ 	    android:id="@+id/s_video"
+ 	    android:layout_width="fill_parent"
+ 	    android:layout_height="500dp"
+ 	    android:visibility="gone"
+ 	    />
+ 	<TextView
+ 	    android:layout_width="fill_parent"
+ 	    android:layout_height="0dp"
+ 	    android:id="@+id/s_tv"
+ 	    android:layout_weight="1"
+ 	    />
+ 	<LinearLayout
+ 	    android:layout_width="fill_parent"
+ 	    android:layout_height="wrap_content"
+ 	    android:orientation = "horizontal"
+ 	    >
+ 	    <Button
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content"
+ 	        android:text="@string/S_butt1"
+ 	        android:id="@+id/s_delete"
+ 	        android:layout_weight="1"
+ 	        style="?android:attr/borderlessButtonStyle"
+ 	        />
+ 	    	<Button
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content"
+ 	        android:text="@string/S_butt2"
+ 	        android:id="@+id/s_back"
+ 	        style="?android:attr/borderlessButtonStyle"
+ 	        android:layout_weight="1"
+ 	        />
+ 	    
+ 	</LinearLayout>
+</LinearLayout>

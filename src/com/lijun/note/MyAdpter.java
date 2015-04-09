@@ -2,11 +2,14 @@ package com.lijun.note;
 
 
 
+
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.ThumbnailUtils;
+import android.provider.MediaStore;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,9 +60,12 @@ public class MyAdpter extends BaseAdapter {
 		String content = cursor.getString(cursor.getColumnIndex("content"));
 		String time = cursor.getString(cursor.getColumnIndex("time"));
 		String url = cursor.getString(cursor.getColumnIndex("path"));
+		String urlvedio = cursor.getString(cursor.getColumnIndex("vedio"));
 		contentv.setText(content);
 		timev.setText(time);
 		imgiv.setImageBitmap(getImageThumbnail(url, 200, 200));
+		videoiv.setImageBitmap(getVideoThumbnail(urlvedio, 200, 200,
+				MediaStore.Images.Thumbnails.MICRO_KIND));
 		return layout;
 	}
 	public static Bitmap getImageThumbnail(String url,int width,int height) {
@@ -84,6 +90,15 @@ public class MyAdpter extends BaseAdapter {
 		bitmap = BitmapFactory.decodeFile(url, options);
 		bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height,
 				ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
+		
+		return bitmap;
+	}
+	
+	public Bitmap getVideoThumbnail(String url,int width,int height,int kind ) {
+		Bitmap bitmap = null;
+		bitmap = ThumbnailUtils.createVideoThumbnail(url, kind);
+		bitmap = ThumbnailUtils.extractThumbnail(bitmap, width, height, ThumbnailUtils.OPTIONS_RECYCLE_INPUT);
+		
 		
 		return bitmap;
 	}

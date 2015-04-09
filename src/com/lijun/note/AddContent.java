@@ -34,7 +34,7 @@ public class AddContent extends Activity implements OnClickListener{
 	private VideoView  v_video;
 	private NoteDB noteDB;
 	private SQLiteDatabase dbWriter;
-	private File phoneFile;
+	private File phoneFile,vedioFile;
 	private static final String TAG = "MyService"; 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,17 +63,22 @@ public class AddContent extends Activity implements OnClickListener{
 		if (val.equals("2")){
 			c_img.setVisibility(View.VISIBLE);
 			v_video.setVisibility(View.GONE);
+
 			Intent iimg = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 			phoneFile = new File(Environment.getExternalStorageDirectory()
 					.getAbsoluteFile() + "/" + getTime() + ".jpg");
 			iimg.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(phoneFile));
 			startActivityForResult(iimg, 1);
-			
 		}
 	
 		if (val.equals("3")){
 			c_img.setVisibility(View.GONE);
 			v_video.setVisibility(View.VISIBLE);
+			Intent vedio = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+			vedioFile = new File(Environment.getExternalStorageDirectory()
+					.getAbsoluteFile() + "/" + getTime() + ".mp4");
+			vedio.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(vedioFile));
+			startActivityForResult(vedio, 2);
 		}
 	}
 	@Override
@@ -95,6 +100,7 @@ public class AddContent extends Activity implements OnClickListener{
 	cv.put(NoteDB.CONTENT, edit.getText().toString());
 	cv.put(NoteDB.TIME, getTime());
 	cv.put(NoteDB.PATH, phoneFile+"");
+	cv.put(NoteDB.VEDIO, vedioFile+"");
 	dbWriter.insert(NoteDB.TABLE_NAME, null,cv);
 	}
 	private String getTime() {
@@ -110,9 +116,11 @@ public class AddContent extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		if(requestCode == 1){
-		
-			
-			c_img.setImageBitmap( MyAdpter.getImageThumbnail( phoneFile+"",400, 400) );
+		c_img.setImageBitmap( MyAdpter.getImageThumbnail( phoneFile+"",400, 400) );
+		}
+		if (requestCode == 2) {
+			v_video.setVideoURI(Uri.fromFile(vedioFile));
+			v_video.start();
 		}
 	}
 	

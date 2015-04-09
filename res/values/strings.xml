@@ -12,5 +12,8 @@
     <string name="save">保存</string>
     <string name="del">取消</string>
     <string name="title_activity_my_adpter">MyAdpter</string>
+    <string name="title_activity_select">SelectAct</string>
+    <string name="S_butt1">删除</string>
+    <string name="S_butt2">返回</string>
 
 </resources>
